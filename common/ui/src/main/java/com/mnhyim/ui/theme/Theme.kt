@@ -1,4 +1,4 @@
-package com.mnhyim.pitjarustechtest.ui.theme
+package com.mnhyim.ui.theme
 
 import android.app.Activity
 import android.os.Build

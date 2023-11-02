@@ -1,4 +1,4 @@
-package com.mnhyim.pitjarustechtest.ui.theme
+package com.mnhyim.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

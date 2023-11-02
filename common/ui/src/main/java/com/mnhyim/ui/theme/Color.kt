@@ -1,4 +1,4 @@
-package com.mnhyim.pitjarustechtest.ui.theme
+package com.mnhyim.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
