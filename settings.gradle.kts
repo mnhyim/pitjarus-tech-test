@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "Pitjarus Tech Test"
 include(":app")
 include(":common:ui")
+include(":domain")
