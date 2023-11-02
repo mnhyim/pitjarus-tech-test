@@ -1,4 +1,4 @@
-package com.mnhyim.login
+package com.mnhyim.auth
 
 import org.junit.Test
 

@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.mnhyim.login"
+    namespace = "com.mnhyim.auth"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -67,6 +67,6 @@ dependencies {
 
 ksp {
     arg("compose-destinations.mode", "navgraphs")
-    arg("compose-destinations.moduleName", "login")
+    arg("compose-destinations.moduleName", "auth")
     arg("compose-destinations.useComposableVisibility", "true")
 }

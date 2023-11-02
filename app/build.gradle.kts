@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.mnhyim.pitjarustechtest"
-    compileSdkVersion(libs.versions.compileSdk.get().toInt())
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.mnhyim.pitjarustechtest"
@@ -59,8 +59,7 @@ dependencies {
     implementation(project(":common:ui"))
     implementation(project(":data"))
     implementation(project(":domain"))
-
-    implementation(project(":feature:login"))
+    implementation(project(":feature:auth"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
