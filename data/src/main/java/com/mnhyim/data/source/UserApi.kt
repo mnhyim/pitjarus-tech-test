@@ -5,7 +5,7 @@ import com.mnhyim.data.dto.LoginResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface StoreApi {
+interface UserApi {
 
     @POST
     fun userLogin(@Body requestBody: LoginRequest): LoginResponse
