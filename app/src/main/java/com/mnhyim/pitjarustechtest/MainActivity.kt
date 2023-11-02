@@ -14,7 +14,9 @@ import androidx.compose.ui.Modifier
 import com.mnhyim.pitjarustechtest.navigation.RootNavGraph
 import com.mnhyim.ui.theme.PitjarusTechTestTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {

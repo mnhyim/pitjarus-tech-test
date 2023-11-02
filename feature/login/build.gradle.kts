@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.ksp)
+    kotlin("kapt")
 }
 
 android {
@@ -58,6 +59,10 @@ dependencies {
 
     implementation(libs.compose.destinations.core)
     ksp(libs.compose.destinations.ksp)
+
+    implementation(libs.dagger.hilt.android)
+    implementation(libs.dagger.hilt.navigation.compose)
+    kapt(libs.dagger.hilt.android.compiler)
 }
 
 ksp {
