@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.ksp)
 }
 
 android {
@@ -45,6 +46,13 @@ dependencies {
     implementation(project(":domain"))
 
     implementation(libs.core.ktx)
+
+    implementation(libs.retrofit)
+    implementation(libs.okhttp3.logging)
+    implementation(libs.moshi)
+    ksp(libs.moshi.kotlin.codegen)
+    implementation(libs.retrofit.moshi.converter)
+
     implementation(libs.timber)
 
 }
