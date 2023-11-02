@@ -2,11 +2,12 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.ksp)
 }
 
 android {
     namespace = "com.mnhyim.pitjarustechtest"
-    compileSdk = libs.versions.compileSdk.get().toInt()
+    compileSdkVersion(libs.versions.compileSdk.get().toInt())
 
     defaultConfig {
         applicationId = "com.mnhyim.pitjarustechtest"
@@ -57,6 +58,8 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
+    implementation(project(":feature:login"))
+
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
@@ -72,6 +75,9 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    implementation(libs.compose.destinations.core)
+    ksp(libs.compose.destinations.ksp)
 
     implementation(libs.timber)
 }

@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.mnhyim.data"
-    compileSdk = libs.versions.compileSdk.get().toInt()
+    compileSdkVersion(libs.versions.compileSdk.get().toInt())
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get().toInt()
