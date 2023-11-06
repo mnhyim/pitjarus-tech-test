@@ -7,15 +7,16 @@ import com.squareup.moshi.JsonClass
 data class LoginResponse(
 
 	@Json(name="stores")
-	val stores: List<StoresItem?>? = null,
+	val stores: List<StoresItem>? = null,
 
 	@Json(name="message")
-	val message: String? = null,
+	val message: String,
 
 	@Json(name="status")
-	val status: String? = null
+	val status: String
 )
 
+@JsonClass(generateAdapter = true)
 data class StoresItem(
 
 	@Json(name="store_id")

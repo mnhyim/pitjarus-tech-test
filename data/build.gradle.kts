@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.ksp)
+    kotlin("kapt")
 }
 
 android {
@@ -53,6 +54,8 @@ dependencies {
     ksp(libs.moshi.kotlin.codegen)
     implementation(libs.retrofit.moshi.converter)
 
-    implementation(libs.timber)
+    implementation(libs.dagger.hilt.android)
+    kapt(libs.dagger.hilt.android.compiler)
 
+    implementation(libs.timber)
 }

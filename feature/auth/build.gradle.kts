@@ -43,6 +43,8 @@ android {
 
 dependencies {
 
+    implementation(project(":domain"))
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -63,6 +65,8 @@ dependencies {
     implementation(libs.dagger.hilt.android)
     implementation(libs.dagger.hilt.navigation.compose)
     kapt(libs.dagger.hilt.android.compiler)
+
+    implementation(libs.timber)
 }
 
 ksp {
