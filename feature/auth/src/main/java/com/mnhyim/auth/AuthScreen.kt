@@ -1,21 +1,19 @@
 package com.mnhyim.auth
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.mnhyim.auth.components.LoginForm
+import com.mnhyim.ui.components.GreyCircularProgressIndicator
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
@@ -23,7 +21,18 @@ import com.ramcosta.composedestinations.annotation.RootNavGraph
 @Destination
 @Composable
 fun AuthScreen(
-    viewModel: AuthViewModel = hiltViewModel()
+    navigateToMainNavGraph: NavigateToMainNavGraph
+) {
+    AuthScreen(
+        viewModel = hiltViewModel(),
+        navigateToMainScreen = navigateToMainNavGraph::invoke
+    )
+}
+
+@Composable
+internal fun AuthScreen(
+    viewModel: AuthViewModel,
+    navigateToMainScreen: () -> Unit
 ) {
     val state by viewModel.state.collectAsState()
 
@@ -41,14 +50,12 @@ fun AuthScreen(
                 .fillMaxWidth(0.9f)
                 .align(CenterHorizontally)
         )
+        Button(onClick = { navigateToMainScreen() }) {
+            Text(text = "TO MAIN")
+        }
     }
 
     if (state.isLoading) {
-        Box(
-            contentAlignment = Center,
-            modifier = Modifier.fillMaxSize().background(Color.LightGray)
-        ) {
-            CircularProgressIndicator()
-        }
+        GreyCircularProgressIndicator()
     }
 }

@@ -68,3 +68,8 @@ dependencies {
 
     implementation(libs.timber)
 }
+ksp {
+    arg("compose-destinations.mode", "navgraphs")
+    arg("compose-destinations.moduleName", "main")
+    arg("compose-destinations.useComposableVisibility", "true")
+}

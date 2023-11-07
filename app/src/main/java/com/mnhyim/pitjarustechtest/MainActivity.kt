@@ -8,12 +8,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
+import com.mnhyim.auth.AuthNavGraph
+import com.mnhyim.auth.NavigateToMainNavGraph
+import com.mnhyim.main.MainNavGraph
 import com.mnhyim.pitjarustechtest.navigation.RootNavGraph
 import com.mnhyim.ui.theme.PitjarusTechTestTheme
 import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.navigation.dependency
+import com.ramcosta.composedestinations.navigation.navigate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,15 +27,21 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PitjarusTechTestTheme {
+                val navController = rememberNavController()
+
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     containerColor = MaterialTheme.colorScheme.background
                 ) { paddingValues ->
                     DestinationsNavHost(
                         navGraph = RootNavGraph,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(paddingValues)
+                        navController = navController,
+                        modifier = Modifier.padding(paddingValues),
+                        dependenciesContainerBuilder = {
+                            dependency(AuthNavGraph) {
+                                NavigateToMainNavGraph { navController.navigate(MainNavGraph) }
+                            }
+                        }
                     )
                 }
             }

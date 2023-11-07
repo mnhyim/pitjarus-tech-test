@@ -60,6 +60,7 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":feature:auth"))
+    implementation(project(":feature:main"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)

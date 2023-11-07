@@ -1,19 +1,20 @@
 package com.mnhyim.pitjarustechtest.navigation
 
 import com.mnhyim.auth.AuthNavGraph
+import com.mnhyim.main.MainNavGraph
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
-import com.ramcosta.composedestinations.spec.Route
 
 object RootNavGraph : NavGraphSpec {
 
-    override val route: String = "root"
+    override val route = "root"
 
-    override val startRoute: Route = AuthNavGraph
+    override val startRoute = AuthNavGraph
 
-    override val destinationsByRoute: Map<String, DestinationSpec<*>> = emptyMap()
+    override val destinationsByRoute = emptyMap<String, DestinationSpec<*>>()
 
     override val nestedNavGraphs = listOf(
         AuthNavGraph,
+        MainNavGraph
     )
 }
