@@ -5,8 +5,8 @@ import com.mnhyim.domain.repository.StoreRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetAllStoreUseCase @Inject constructor(
+class GetStoreById @Inject constructor(
     private val repository: StoreRepository
 ) {
-    operator fun invoke(): Flow<List<Store>> = repository.getAllStore()
+    operator fun invoke(id: String): Flow<Store> = repository.getStoreById(id)
 }

@@ -10,6 +10,9 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface StoreDao {
 
+    @Query("SELECT * FROM stores WHERE storeId=:id")
+    fun getStoreById(id: String): Flow<StoreEntity>
+
     @Query("SELECT * FROM stores")
     fun getAll(): Flow<List<StoreEntity>>
 

@@ -26,7 +26,7 @@ fun OsmdroidMapView(
     modifier: Modifier = Modifier
 ) {
     val mapView = rememberMapViewWithLifecycle()
-    Configuration.getInstance().userAgentValue = "ADASDASDASDASDASD"
+    Configuration.getInstance().userAgentValue = "mnhyim-pitjarus-test"
 
     AndroidView(
         factory = { mapView },
@@ -49,14 +49,14 @@ fun OsmdroidMapView(
         val cluster = FolderOverlay()
         stores.forEachIndexed { index, store ->
             val markerPoint = GeoPoint(
-                store.latitude.toDouble(),
-                store.longitude.toDouble()
+                store.latitude,
+                store.longitude
             )
             val randomMarker = Marker(view)
             randomMarker.position = markerPoint
             randomMarker.setOnMarkerClickListener { marker, mapView ->
                 navigateToDetail(store.storeId)
-                Toast.makeText(view.context, "${store.storeId} Clicked", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(view.context, "${store.storeId} Clicked", Toast.LENGTH_SHORT).show()
                 true
             }
             cluster.add(randomMarker)

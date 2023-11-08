@@ -5,6 +5,7 @@ import com.mnhyim.domain.repository.UserRepository
 import com.mnhyim.domain.usecase.AuthUseCases
 import com.mnhyim.domain.usecase.DataUseCases
 import com.mnhyim.domain.usecase.GetAllStoreUseCase
+import com.mnhyim.domain.usecase.GetStoreById
 import com.mnhyim.domain.usecase.LoginUseCase
 import dagger.Module
 import dagger.Provides
@@ -28,7 +29,8 @@ object UseCasesModule {
     @Provides
     fun provideDataUseCases(repository: StoreRepository): DataUseCases {
         return DataUseCases(
-            GetAllStoreUseCase(repository)
+            GetAllStoreUseCase(repository),
+            GetStoreById(repository)
         )
     }
 }

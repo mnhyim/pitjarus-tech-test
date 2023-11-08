@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface StoreRepository {
 
-    fun getStoreList(): Flow<List<Store>>
+    fun getStoreById(id: String): Flow<Store>
+    fun getAllStore(): Flow<List<Store>>
     fun cleanStoreList()
 }
