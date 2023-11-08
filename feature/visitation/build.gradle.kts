@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.mnhyim.main"
+    namespace = "com.mnhyim.visitation"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -71,6 +71,6 @@ dependencies {
 
 ksp {
     arg("compose-destinations.mode", "navgraphs")
-    arg("compose-destinations.moduleName", "main")
+    arg("compose-destinations.moduleName", "visitation")
     arg("compose-destinations.useComposableVisibility", "true")
 }
