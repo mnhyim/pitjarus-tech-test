@@ -11,15 +11,14 @@ class StoreRepositoryImpl(
 ) : StoreRepository {
     override fun getStoreList(): Flow<List<Store>> {
         return database.storeDao().getAll().map { stores ->
-            stores.map { store ->
+            stores.mapIndexed { index, store ->
                 Store(
-                    storeId = store.storeId ?: "",
+                    storeId = store.storeId,
                     storeCode = store.storeCode ?: "",
                     channelName = store.channelName ?: "",
                     areaName = store.areaName ?: "",
                     address = store.address ?: "",
                     dcName = store.dcName ?: "",
-                    latitude = store.latitude ?: "",
                     regionId = store.regionId ?: "",
                     areaId = store.areaId ?: "",
                     accountId = store.accountId ?: "",
@@ -30,7 +29,8 @@ class StoreRepositoryImpl(
                     subchannelName = store.subchannelName ?: "",
                     regionName = store.regionName ?: "",
                     channelId = store.channelId ?: "",
-                    longitude = store.longitude ?: "",
+                    latitude = ((store.latitude?.toDouble() ?: 0.0) + (index*2)),
+                    longitude = ((store.longitude?.toDouble() ?: 0.0) + (index * 2)),
                 )
             }
         }

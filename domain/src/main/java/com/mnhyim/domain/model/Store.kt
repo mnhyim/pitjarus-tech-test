@@ -7,7 +7,7 @@ data class Store(
     val areaName: String,
     val address: String,
     val dcName: String,
-    val latitude: String,
+    val latitude: Double,
     val regionId: String,
     val areaId: String,
     val accountId: String,
@@ -18,5 +18,5 @@ data class Store(
     val subchannelName: String,
     val regionName: String,
     val channelId: String,
-    val longitude: String,
+    val longitude: Double,
 )

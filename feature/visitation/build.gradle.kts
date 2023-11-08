@@ -67,6 +67,9 @@ dependencies {
     kapt(libs.dagger.hilt.android.compiler)
 
     implementation(libs.timber)
+    implementation("org.osmdroid:osmdroid-android:6.1.17")
+
+
 }
 
 ksp {

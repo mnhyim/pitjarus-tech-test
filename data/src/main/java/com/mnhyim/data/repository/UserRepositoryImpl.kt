@@ -25,7 +25,7 @@ class UserRepositoryImpl(
                 areaName = store.areaName ?: "",
                 address = store.address ?: "",
                 dcName = store.dcName ?: "",
-                latitude = store.latitude ?: "",
+                latitude = store.latitude?.toDouble() ?: 0.0,
                 regionId = store.regionId ?: "",
                 areaId = store.areaId ?: "",
                 accountId = store.accountId ?: "",
@@ -36,7 +36,7 @@ class UserRepositoryImpl(
                 subchannelName = store.subchannelName ?: "",
                 regionName = store.regionName ?: "",
                 channelId = store.channelId ?: "",
-                longitude = store.longitude ?: "",
+                longitude = store.longitude?.toDouble()   ?: 0.0,
             )
         }
 
