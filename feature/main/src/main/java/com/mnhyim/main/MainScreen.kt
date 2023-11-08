@@ -10,8 +10,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.mnhyim.main.components.MainMenu
 import com.mnhyim.main.components.MonthlyVisitationInfo
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-@Destination(start = true)
+@RootNavGraph(start = true)
+@Destination
 @Composable
 fun MainScreen(
     navigateToVisitationNavGraph: NavigateToVisitationNavGraph

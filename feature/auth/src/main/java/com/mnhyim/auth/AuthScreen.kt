@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
@@ -17,7 +18,8 @@ import com.mnhyim.ui.components.GreyCircularProgressIndicator
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-@Destination(start = true)
+@RootNavGraph(start = true)
+@Destination
 @Composable
 fun AuthScreen(
     navigateToMainNavGraph: NavigateToMainNavGraph
@@ -34,6 +36,16 @@ internal fun AuthScreen(
     navigateToMainScreen: () -> Unit
 ) {
     val state by viewModel.state.collectAsState()
+
+    if (state.isLoggedIn) {
+        LaunchedEffect(key1 = true) {
+            navigateToMainScreen()
+        }
+    }
+
+    if (state.isLoading) {
+        GreyCircularProgressIndicator()
+    }
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -54,7 +66,4 @@ internal fun AuthScreen(
         }
     }
 
-    if (state.isLoading) {
-        GreyCircularProgressIndicator()
-    }
 }

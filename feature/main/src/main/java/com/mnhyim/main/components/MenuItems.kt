@@ -5,7 +5,6 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
-import androidx.compose.material.icons.rounded.AccountBox
 import androidx.compose.ui.graphics.vector.ImageVector
 
 enum class MenuItems(

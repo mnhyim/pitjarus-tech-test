@@ -28,16 +28,21 @@ class AuthViewModel @Inject constructor(
         ).onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    changeLoadingStatus(false)
-                    Timber.d("userLogin - Success")
+                    if (result.code == 200) {
+                        changeLoginStatus(true)
+                        changeLoadingStatus(false)
+                        Timber.d("userLogin - Success")
+                    }
                 }
 
                 is Resource.Loading -> {
                     changeLoadingStatus(true)
                     Timber.d("userLogin - Loading")
                 }
+
                 is Resource.Error -> {
                     changeLoadingStatus(false)
+                    changeLoginStatus(false)
                     Timber.d("userLogin - Error - ${result.message}")
                 }
             }
@@ -45,8 +50,8 @@ class AuthViewModel @Inject constructor(
     }
 
     fun inputUsername(username: String) = _state.update { it.copy(username = username) }
-
     fun inputPassword(password: String) = _state.update { it.copy(password = password) }
 
     private fun changeLoadingStatus(status: Boolean) = _state.update { it.copy(isLoading = status) }
+    private fun changeLoginStatus(status: Boolean) = _state.update { it.copy(isLoggedIn = status) }
 }

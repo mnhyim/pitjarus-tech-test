@@ -1,12 +1,14 @@
 package com.mnhyim.data.di
 
+import android.content.Context
+import androidx.room.Room
 import com.mnhyim.data.BuildConfig
-import com.mnhyim.data.repository.UserRepositoryImpl
-import com.mnhyim.data.source.UserApi
-import com.mnhyim.domain.repository.UserRepository
+import com.mnhyim.data.source.local.database.AppDatabase
+import com.mnhyim.data.source.remote.UserApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,13 +20,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DataModule {
 
-    @Provides
-    @Singleton
-    fun provideRepositories(
-        api: UserApi
-    ): UserRepository {
-        return UserRepositoryImpl(api)
-    }
 
     @Provides
     @Singleton
@@ -44,4 +39,14 @@ object DataModule {
             .create(UserApi::class.java)
     }
 
+    @Provides
+    @Singleton
+    fun provideDatabase(
+        @ApplicationContext context: Context
+    ): AppDatabase {
+        return Room.databaseBuilder(
+            context,
+            AppDatabase::class.java, "stores-database"
+        ).build()
+    }
 }

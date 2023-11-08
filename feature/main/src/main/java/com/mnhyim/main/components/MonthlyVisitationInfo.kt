@@ -49,21 +49,21 @@ fun MonthlyVisitationInfo(
                 title = "Total Score",
                 score = "150",
                 color = Color.Red,
-                modifier = Modifier.weight(0.3f,false)
+                modifier = Modifier.weight(0.3f, false)
             )
             VisitationScore(
                 icon = Icons.Default.KeyboardArrowDown,
                 title = "Actual Score",
                 score = "150",
                 color = Color.Green,
-                modifier = Modifier.weight(0.3f,false)
+                modifier = Modifier.weight(0.3f, false)
             )
             VisitationScore(
                 icon = Icons.Default.KeyboardArrowRight,
                 title = "Percentage",
                 score = "150",
                 color = Color.Yellow,
-                modifier = Modifier.weight(0.3f,false)
+                modifier = Modifier.weight(0.3f, false)
             )
         }
     }

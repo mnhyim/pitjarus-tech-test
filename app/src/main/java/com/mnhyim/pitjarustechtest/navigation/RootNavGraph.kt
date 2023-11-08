@@ -2,7 +2,7 @@ package com.mnhyim.pitjarustechtest.navigation
 
 import com.mnhyim.auth.AuthNavGraph
 import com.mnhyim.main.MainNavGraph
-import com.mnhyim.visitation.store_list.VisitationNavGraph
+import com.mnhyim.visitation.VisitationNavGraph
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
 

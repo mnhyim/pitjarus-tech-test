@@ -45,7 +45,10 @@ fun MainMenu(
                         .weight(weight = 0.25f, fill = false)
                         .clickable {
                             when (menu) {
-                                MenuItems.VISITATION -> { navigateToVisitationScreen() }
+                                MenuItems.VISITATION -> {
+                                    navigateToVisitationScreen()
+                                }
+
                                 MenuItems.INSTALL_TARGET -> {}
                                 MenuItems.DASHBOARD -> {}
                                 MenuItems.HISTORY -> {}

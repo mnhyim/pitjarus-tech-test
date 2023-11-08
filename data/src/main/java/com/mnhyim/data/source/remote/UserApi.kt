@@ -1,8 +1,6 @@
-package com.mnhyim.data.source
+package com.mnhyim.data.source.remote
 
-import com.mnhyim.data.dto.LoginRequest
 import com.mnhyim.data.dto.LoginResponse
-import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST

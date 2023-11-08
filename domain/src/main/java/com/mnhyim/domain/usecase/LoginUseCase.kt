@@ -5,7 +5,6 @@ import com.mnhyim.domain.repository.UserRepository
 import com.mnhyim.domain.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import timber.log.Timber
 import javax.inject.Inject
 
 class LoginUseCase @Inject constructor(
@@ -18,9 +17,9 @@ class LoginUseCase @Inject constructor(
                 username = username,
                 password = password,
             )
-            emit(Resource.Success(code = null, content = result))
+            emit(result)
         } catch (e: Exception) {
-            emit(Resource.Error(code = null, message = e.localizedMessage))
+            emit(Resource.Error(code = 401, message = "Exception: ${e.localizedMessage}"))
         }
     }
 }

@@ -16,7 +16,7 @@ import com.mnhyim.main.MainNavGraph
 import com.mnhyim.main.NavigateToVisitationNavGraph
 import com.mnhyim.pitjarustechtest.navigation.RootNavGraph
 import com.mnhyim.ui.theme.PitjarusTechTestTheme
-import com.mnhyim.visitation.store_list.VisitationNavGraph
+import com.mnhyim.visitation.VisitationNavGraph
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.navigation.dependency
 import com.ramcosta.composedestinations.navigation.navigate
@@ -41,10 +41,14 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(paddingValues),
                         dependenciesContainerBuilder = {
                             dependency(AuthNavGraph) {
-                                NavigateToMainNavGraph { navController.navigate(MainNavGraph) }
+                                NavigateToMainNavGraph {
+                                    navController.navigate(MainNavGraph)
+                                }
                             }
                             dependency(MainNavGraph) {
-                                NavigateToVisitationNavGraph { navController.navigate(VisitationNavGraph) }
+                                NavigateToVisitationNavGraph {
+                                    navController.navigate(VisitationNavGraph)
+                                }
                             }
                         }
                     )
