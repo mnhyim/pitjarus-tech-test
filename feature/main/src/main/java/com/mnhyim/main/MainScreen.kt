@@ -10,25 +10,31 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.mnhyim.main.components.MainMenu
 import com.mnhyim.main.components.MonthlyVisitationInfo
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-@RootNavGraph(start = true)
-@Destination
+@Destination(start = true)
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    navigateToVisitationNavGraph: NavigateToVisitationNavGraph
+) {
     MainScreen(
+        navigateToVisitationScreen = navigateToVisitationNavGraph::invoke,
         viewModel = hiltViewModel()
     )
 }
 
 @Composable
 internal fun MainScreen(
+    navigateToVisitationScreen: () -> Unit,
     viewModel: MainViewModel
 ) {
     Column(
         modifier = Modifier.padding(16.dp)
     ) {
-        MonthlyVisitationInfo(modifier = Modifier.fillMaxWidth())
-        MainMenu()
+        MonthlyVisitationInfo(
+            modifier = Modifier.fillMaxWidth()
+        )
+        MainMenu(
+            navigateToVisitationScreen = navigateToVisitationScreen,
+        )
     }
 }

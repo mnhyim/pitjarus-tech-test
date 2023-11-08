@@ -23,7 +23,9 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun MainMenu() {
+fun MainMenu(
+    navigateToVisitationScreen: () -> Unit,
+) {
     Column {
         Text(
             text = "Menu",
@@ -43,7 +45,7 @@ fun MainMenu() {
                         .weight(weight = 0.25f, fill = false)
                         .clickable {
                             when (menu) {
-                                MenuItems.VISITATION -> {}
+                                MenuItems.VISITATION -> { navigateToVisitationScreen() }
                                 MenuItems.INSTALL_TARGET -> {}
                                 MenuItems.DASHBOARD -> {}
                                 MenuItems.HISTORY -> {}

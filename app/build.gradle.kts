@@ -61,6 +61,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":feature:auth"))
     implementation(project(":feature:main"))
+    implementation(project(":feature:visitation"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)

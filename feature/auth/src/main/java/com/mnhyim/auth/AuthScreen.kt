@@ -17,8 +17,7 @@ import com.mnhyim.ui.components.GreyCircularProgressIndicator
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-@RootNavGraph(start = true)
-@Destination
+@Destination(start = true)
 @Composable
 fun AuthScreen(
     navigateToMainNavGraph: NavigateToMainNavGraph

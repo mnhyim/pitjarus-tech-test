@@ -54,6 +54,10 @@ dependencies {
     ksp(libs.moshi.kotlin.codegen)
     implementation(libs.retrofit.moshi.converter)
 
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.android.compiler)
 
