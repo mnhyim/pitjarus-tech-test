@@ -61,9 +61,9 @@ internal fun AuthScreen(
                 .fillMaxWidth(0.9f)
                 .align(CenterHorizontally)
         )
-        Button(onClick = { navigateToMainScreen() }) {
-            Text(text = "TO MAIN")
-        }
+//        Button(onClick = { navigateToMainScreen() }) {
+//            Text(text = "TO MAIN")
+//        }
     }
 
 }
