@@ -2,16 +2,19 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.dagger.hilt)
+    kotlin("kapt")
 }
 
 android {
     namespace = "com.mnhyim.pitjarustechtest"
-    compileSdk = 33
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.mnhyim.pitjarustechtest"
-        minSdk = 24
-        targetSdk = 33
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
 
@@ -31,14 +34,15 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -51,6 +55,13 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":common:ui"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":feature:auth"))
+    implementation(project(":feature:main"))
+    implementation(project(":feature:visitation"))
 
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
@@ -67,4 +78,18 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    implementation(libs.compose.destinations.core)
+    ksp(libs.compose.destinations.ksp)
+
+    implementation(libs.dagger.hilt.android)
+    implementation(libs.dagger.hilt.android.gradle.plugin)
+    implementation(libs.dagger.hilt.navigation.compose)
+    kapt(libs.dagger.hilt.android.compiler)
+
+    implementation(libs.timber)
+}
+
+kapt {
+    correctErrorTypes = true
 }
